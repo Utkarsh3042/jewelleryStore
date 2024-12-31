@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="logfo">
+    <div class="wrapper">
+
+        <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <h2>Edit Jewellery</h2>
+            <div class="input-field">
+                <input type="text" id="jewel_name" name="jewel_name" value="{{ jewel.jewel_name }}" required>
+                <label for="name">Product Name:</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="jewel_description" name="jewel_description" value="{{ jewel.jewel_description }}">
+                <label for="description">Description:</label>
+            </div>
+        <div class="input-field">
+            <input type="number" id="jewel_price" name="jewel_price" value="{{ jewel.jewel_price }}" required>
+            <label for="price">Price:</label>
+        </div>
+        <div>
+            <label for="image">Product Image:</label>
+            <input type="file" id="jewel_image" name="jewel_image">
+            {% if jewel.jewel_image %}
+            <p>Current Image:</p>
+            <img src="{{ jewel.jewel_image.url }}" alt="Current Product Image" style="max-width: 200px;">
+            {% endif %}
+        </div>
+        <button type="submit">Update Product</button>
+    </form>
+</div>
+    
+</div>
+{% endblock content %}

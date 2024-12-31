@@ -1,0 +1,38 @@
+{% extends "store/base.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>Admin Panel</h1>
+    <div class="container">
+        <button style="background-color: royalblue; padding: 6px 30px; border-radius: 8px;">
+            <a href="{% url 'add_jewellery' %}">Add Item</a>
+        </button>
+    </div>
+    
+    <div class="cards">
+        {% for jewel in jewellery %}
+        <div class="card">
+            <a href="{% url 'details' jewel.id %}">
+                <img src="{{ jewel.jewel_image.url }}" alt="{{ jewel.jewel_name }}">
+                <div class="card-content">
+                    <h3>{{ jewel.jewel_name }}</h3>
+                    <p>
+                        <button>
+                            <a href="{% url 'edit_jewellery' jewel.id %}">Edit</a>
+                        </button>
+                        <button style="background-color: crimson;">
+                            <a href="{% url 'delete_jewellery' jewel.id %}">Delete</a>
+                        </button>
+                    </p>
+                    </p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="logfo">
+    <div class="wrapper">
+        <form method="POST" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <h2>Add Jewellery</h2>
+            <div class="input-field">
+                <input type="text" id="jewel_name" name="jewel_name" required>
+                <label for="jewel_name">Stone Name</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="jewel_description" name="jewel_description" required>
+                <label for="jewel_description">Description</label>
+            </div>
+            <select id="category" name="category"
+                style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; background-color: #fff; color: #333; cursor: pointer;">
+                <option value="" selected style="color: #999;">Select a category</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}" style="color: #333;">{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+            <div class="input-field">
+                <input type="text" id="new_category" name="new_category" placeholder="Or Type New Category">
+            </div>
+            <div class="input-field">
+                <input type="number" id="jewel_price" name="jewel_price" required>
+                <label for="jewel_price">Price</label>
+            </div>
+            <div>
+                <input type="file" name="jewel_image" id="jewel_image"><br><br>
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Are you sure you want to delete {{ jewel.jewel_name }}?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <span>
+            <button type="submit" style="background-color: crimson;">Yes</button>
+        </span>
+        <a style="color: black;" href="{% url 'adminpanel' %}">No</a>
+    </form>
+</div>
+{% endblock content %}
