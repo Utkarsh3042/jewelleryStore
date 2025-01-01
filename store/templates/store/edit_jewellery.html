@@ -11,8 +11,7 @@
                 <label for="name">Product Name:</label>
             </div>
             <div class="input-field">
-                <input type="text" id="jewel_description" name="jewel_description" value="{{ jewel.jewel_description }}">
-                <label for="description">Description:</label>
+                <textarea id="jewel_description" name="jewel_description" rows="4" required>{{jewel.jewel_description}}</textarea>
             </div>
         <div class="input-field">
             <input type="number" id="jewel_price" name="jewel_price" value="{{ jewel.jewel_price }}" required>

@@ -1,26 +1,12 @@
 {% extends "store/base.html" %}
 {% block content %}
-<!-- 
-<div class="container">
-    <h1>{{jewel.jewel_name}}</h1> <br>
-    <img src="{{jewel.jewel_image.url}}"><br>
-    <p>
-        Description: {{jewel.jewel_description}} <br>
-        Category: {{jewel.jewel_category}} <br>
-        Price: {{jewel.jewel_price}} <br>
-        <button>Add to Cart</button>
-    </p>
-    <button><a href="{% url 'home' %}">Home</a></button>
-</div> -->
 
-
-<!-- Cover Image -->
 <div class="detail_container">
     <div class="cover-image" style="background-image: url('{{jewel.jewel_image.url}}');">
         <div class="cover-title">{{jewel.jewel_category}}</div>
     </div>
     <div class="det_cont1">
-        <div>
+        <div style="width: min-content;">
             <h2 style="color: black;">{{jewel.jewel_name}}</h2>
             <h3>{{jewel.jewel_description}}</h3>
             <h4>Rs. {{jewel.jewel_price}} per ct</h4>

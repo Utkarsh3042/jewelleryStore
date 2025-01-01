@@ -336,10 +336,17 @@ form {
   flex-direction: column;
 }
 
+.wrapper h2{
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+
+}
+
 h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #fff;
+  color: #000000;
 }
 
 .input-field {
@@ -357,6 +364,17 @@ h2 {
   font-size: 16px;
   pointer-events: none;
   transition: 0.15s ease;
+}
+
+.input-field textarea{
+  width: 90%;
+  height: 100px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+
 }
 
 .input-field input {
@@ -407,7 +425,7 @@ h2 {
 }
 
 button {
-  background: #fff;
+  background: #f8e808;
   color: #000;
   font-weight: 600;
   border: none;
@@ -537,4 +555,27 @@ button:hover {
 
 .alert .close:hover {
   opacity: 0.7;
+}
+
+.forgotpass{
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forgotpass button{
+  margin-top: 20px;
+}
+
+.forgotpass button:hover{
+  background-color: rgb(202, 148, 0);
+  color: #000;
+}
+
+.forgotpass a{
+  color: #000;
+}
+
+.forgotpass ul{
+  flex-direction: column;
 }

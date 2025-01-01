@@ -153,6 +153,3 @@ def search_view(request):
     jewellery = Jewels.objects.filter(jewel_name__icontains=search_item).order_by("-id")
     return render(request, 'store/search.html', {'jewellery':jewellery, 'search_item':search_item})
 
-
-def forget_password(request):
-    return redirect('signin')
