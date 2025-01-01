@@ -144,4 +144,4 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 #True for admin page enabled, False for not
-ADMIN_ENABLED = True
+ADMIN_ENABLED = False
