@@ -19,8 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('store.urls')),
 
+urlpatterns = []
+
+
+urlpatterns = [
+    path('', include('store.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.ADMIN_ENABLED is True:
+    urlpatterns += [path('admin/', admin.site.urls),]

@@ -7,7 +7,7 @@
     <title>Gemstone Heaven</title>
     {% load static %}
     <link rel="shortcut icon" href="{%  static 'store/images/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'store/css/styles2.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,70 +17,57 @@
     <!-- Navbar -->
     <header>
         <nav>
-            <a href="{% url 'home' %}"" class=" logo">Govindam Gems</a>
+            <div>
+                <a href="{% url 'home' %}"" class=" logo">Govindam Gems</a>
+            </div>
             <div class="nav1">
-                <ul>
+                <ul class="nav12">
                     {% if user.is_authenticated and user.is_superuser %}
                     <li>
                         <a href="{% url 'adminpanel' %}">Admin Panel</a>
                     </li>
-                    {% endif %}
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle">Gem Stones</a>
-                        <ul class="dropdown-menu">
-                            {% for category in categories %}
-                            <li>
-                                <a href="{% url 'category' category.id %}">
-                                    {{ category.category_name }}
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <!-- <li class="dropdown">
-                    <div>
-                        GemStones
-                    </div>
-                    <ul class="dropdown-menu">
-                        {% for category in categories %}
-                        <li>
-                            <a href="{% url 'category' category.id %}">
-                                {{ category.category_name }}
-                            </a>
+                        {% endif %}
+                            <a href="javascript:void(0);" class="dropdown-toggle">Gem Stones</a>
+                            <div class="dropdown-menu">
+                                {% for category in categories %}
+                                    <a href="{% url 'category' category.id %}">
+                                        {{ category.category_name }}
+                                    </a>
+                                {% endfor %}
+                            </div>
                         </li>
-                        {% endfor %}
+                        <li><a href="{% url 'about' %}">About</a></li>
                     </ul>
-                </li> -->
-                    <li><a href="{% url 'about' %}">About</a></li>
-                </ul>
-                <form method="GET" action="{% url 'search_view' %}">
-                    <div class="search-box">
-                        <!-- <img src="{% static 'store/images/search.png' %}" alt=""> -->
-                        <input type="text" name="search" placeholder="Search...">
-                        <button type="submit" value="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <form method="GET" action="{% url 'search_view' %}">
+                        <div class="search-box">
+                            <!-- <img src="{% static 'store/images/search.png' %}" alt=""> -->
+                            <input type="text" name="search" placeholder="Search...">
+                            <button type="submit" value="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
+                    {% if user.is_authenticated %}
+                    <div class="logout">
+                        <a href="{% url 'logout_view' %}">Logout</a>
                     </div>
-                </form>
-                {% if user.is_authenticated %}
-                <div class="logout">
-                    <a href="{% url 'logout_view' %}">Logout</a>
+                    {% else %}
+                    <div class="login">
+                        <a href="{% url 'signin' %}">Login</a>
+                    </div>
+                    {% endif %}
                 </div>
-                {% else %}
-                <div class="login">
-                    <a href="{% url 'signin' %}">Login</a>
-                </div>
-                {% endif %}
             </div>
         </nav>
     </header>
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-        {% endfor %}
-        {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
     <main>
-        <!-- Home Section -->    
+        <!-- Home Section -->
         {% block content %}
         {% endblock content %}
     </main>
