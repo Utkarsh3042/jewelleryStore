@@ -8,23 +8,32 @@
             <h2>Edit Jewellery</h2>
             <div class="input-field">
                 <input type="text" id="jewel_name" name="jewel_name" value="{{ jewel.jewel_name }}" required>
-                <label for="name">Product Name:</label>
+                <label for="jewel_name">Stone Name</label>
             </div>
             <div class="input-field">
-                <textarea id="jewel_description" name="jewel_description" rows="4" required>{{jewel.jewel_description}}</textarea>
+                <input type="text" id="jewel_size" value="{{ jewel.jewel_size }}" name="jewel_size">
+                <label for="jewel_size">Size</label>
             </div>
-        <div class="input-field">
-            <input type="number" id="jewel_price" name="jewel_price" value="{{ jewel.jewel_price }}" required>
-            <label for="price">Price:</label>
-        </div>
-        <div>
-            <label for="image">Product Image:</label>
-            <input type="file" id="jewel_image" name="jewel_image">
-            {% if jewel.jewel_image %}
-            <p>Current Image:</p>
-            <img src="{{ jewel.jewel_image.url }}" alt="Current Product Image" style="max-width: 200px;">
-            {% endif %}
-        </div>
+            <div class="input-field">
+                <input type="text" id="jewel_weight" value="{{ jewel.jewel_weight }}" name="jewel_weight">
+                <label for="jewel_weight">Weight</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="jewel_origin" value="{{ jewel.jewel_origin }}" name="jewel_origin">
+                <label for="jewel_origin">Origin</label>
+            </div>
+            <div class="input-field">
+                <input type="number" id="jewel_price" name="jewel_price" value="{{ jewel.jewel_price }}" required>
+                <label for="price">Price:</label>
+             </div>
+            <div>
+                <label for="image">Product Image:</label>
+                <input type="file" id="jewel_image" name="jewel_image">
+                {% if jewel.jewel_image %}
+                <p>Current Image:</p>
+                <img src="{{ jewel.jewel_image.url }}" alt="Current Product Image" style="max-width: 200px;">
+                {% endif %}
+            </div>
         <button type="submit">Update Product</button>
     </form>
 </div>

@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Admin Panel</h1>
     <div class="container">
-        <button style="background-color: royalblue; padding: 6px 30px; border-radius: 8px;">
+        <button class="additembutton">
             <a href="{% url 'add_jewellery' %}">Add Item</a>
         </button>
     </div>
@@ -20,7 +20,7 @@
                         <button>
                             <a href="{% url 'edit_jewellery' jewel.id %}">Edit</a>
                         </button>
-                        <button style="background-color: crimson;">
+                        <button class="deletebutton"">
                             <a href="{% url 'delete_jewellery' jewel.id %}">Delete</a>
                         </button>
                     </p>

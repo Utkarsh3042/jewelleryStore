@@ -6,10 +6,12 @@
         <div class="cover-title">{{jewel.jewel_category}}</div>
     </div>
     <div class="det_cont1">
-        <div style="width: min-content;">
-            <h2 style="color: black;">{{jewel.jewel_name}}</h2>
-            <h3>{{jewel.jewel_description}}</h3>
-            <h4>Rs. {{jewel.jewel_price}} per ct</h4>
+        <h2 style="color: black;">{{jewel.jewel_name}}</h2>
+        <div>
+            <h3>Size:<span>{{jewel.jewel_size}}</span> </h3>
+            <h3>Weight: <span>{{jewel.jewel_weight}} Carat </span></h3>
+            <h3>Origin: <span>{{jewel.jewel_origin}}</span></h3>
+            <h4>Rs.<span>{{jewel.jewel_price}} Per Carat </span></h4>
         </div>
         <div class="cart">
             <button><i class="fa-solid fa-cart-shopping"></i></button>

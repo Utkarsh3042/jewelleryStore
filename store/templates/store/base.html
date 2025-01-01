@@ -26,8 +26,8 @@
                     <li>
                         <a href="{% url 'adminpanel' %}">Admin Panel</a>
                     </li>
+                    {% endif %}
                     <li class="dropdown">
-                        {% endif %}
                             <a href="javascript:void(0);" class="dropdown-toggle">Gem Stones</a>
                             <div class="dropdown-menu">
                                 {% for category in categories %}
@@ -41,7 +41,6 @@
                     </ul>
                     <form method="GET" action="{% url 'search_view' %}">
                         <div class="search-box">
-                            <!-- <img src="{% static 'store/images/search.png' %}" alt=""> -->
                             <input type="text" name="search" placeholder="Search...">
                             <button type="submit" value="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>

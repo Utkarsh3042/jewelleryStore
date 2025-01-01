@@ -24,8 +24,10 @@ def adminpanel(request):
 def add_jewellery(request):
     if request.method == 'POST':
         jewel_name = request.POST.get('jewel_name')
-        jewel_description = request.POST.get('jewel_description')
         jewel_price = request.POST.get('jewel_price')
+        jewel_size = request.POST.get('jewel_size')
+        jewel_weight = request.POST.get('jewel_weight')
+        jewel_origin = request.POST.get('jewel_origin')
         jewel_image = request.FILES.get('jewel_image')
         category_id = request.POST.get('category')
         new_category = request.POST.get('new_category')
@@ -45,7 +47,9 @@ def add_jewellery(request):
             Jewels.objects.create(
                 jewel_name=jewel_name,
                 jewel_price=jewel_price,
-                jewel_description=jewel_description,
+                jewel_size=jewel_size,
+                jewel_weight = jewel_weight,
+                jewel_origin = jewel_origin,
                 jewel_image=jewel_image,
                 jewel_category=category,
             )
@@ -63,7 +67,10 @@ def edit_jewellery(request,pk):
         jewel.jewel_name = request.POST.get('jewel_name')
         jewel.jewel_description = request.POST.get('jewel_description')
         jewel.jewel_price = request.POST.get('jewel_price')
-        
+        jewel.jewel_size = request.POST.get('jewel_size')
+        jewel.jewel_weight = request.POST.get('jewel_weight')
+        jewel.jewel_origin = request.POST.get('jewel_origin')
+
         # Check if a new image is uploaded
         if 'jewel_image' in request.FILES:
             jewel.jewel_image = request.FILES['jewel_image']
@@ -87,9 +94,8 @@ def delete_jewellery(request,pk):
 
 
 def home(request):
-    categories = Category.objects.all()
     jewellery = Jewels.objects.all().order_by("-id")
-    return render(request, 'store/home.html', {'jewellery': jewellery,'categories': categories})
+    return render(request, 'store/home.html', {'jewellery': jewellery})
 
 
 def signup(request):

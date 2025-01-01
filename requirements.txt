@@ -1,1 +1,2 @@
 django-cripsy-forms
+python-dotenv

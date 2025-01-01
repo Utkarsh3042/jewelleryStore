@@ -7,7 +7,11 @@
         <span>
             <button type="submit" style="background-color: crimson;">Yes</button>
         </span>
-        <a style="color: black;" href="{% url 'adminpanel' %}">No</a>
+        <span>
+            <button>
+                <a style="color: black; text-decoration: none;" href="{% url 'adminpanel' %}"> No </a>
+            </button>
+        </span>
     </form>
 </div>
 {% endblock content %}

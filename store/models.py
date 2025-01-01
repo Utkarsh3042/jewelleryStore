@@ -13,7 +13,9 @@ class Category(models.Model):
 class Jewels(models.Model):
     jewel_name = models.CharField(max_length=50, unique=True, null=False)
     jewel_price = models.DecimalField(max_digits=10, decimal_places=2, null=False)
-    jewel_description = models.TextField(null=False)
+    jewel_size = models.TextField(null=True)
+    jewel_weight = models.TextField(null=True)
+    jewel_origin = models.TextField(null=True)
     jewel_image = models.ImageField(upload_to='store/jewellery_images/', null=False)
     jewel_category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='jewels', null=False)
 
