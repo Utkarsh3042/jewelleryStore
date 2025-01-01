@@ -24,14 +24,14 @@ class Jewels(models.Model):
         return self.jewel_name
     
 
-class Orders(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    jewels = models.ForeignKey(Jewels, on_delete=models.CASCADE)
-    ordered_at = models.DateTimeField(auto_now_add=True)
+# class Orders(models.Model):
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     jewels = models.ForeignKey(Jewels, on_delete=models.CASCADE)
+#     ordered_at = models.DateTimeField(auto_now_add=True)
 
 
-    def __str__(self):
-        return f"Order by {self.user.username} - {self.jewels.jewel_name}"
+#     def __str__(self):
+#         return f"Order by {self.user.username} - {self.jewels.jewel_name}"
     
 
 
