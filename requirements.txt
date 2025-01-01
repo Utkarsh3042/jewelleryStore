@@ -1,2 +1,2 @@
-django-cripsy-forms
+django-crispy-forms
 python-dotenv
