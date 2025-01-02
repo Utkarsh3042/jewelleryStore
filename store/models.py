@@ -16,7 +16,7 @@ class Jewels(models.Model):
     jewel_size = models.TextField(null=True)
     jewel_weight = models.TextField(null=True)
     jewel_origin = models.TextField(null=True)
-    jewel_image = models.ImageField(upload_to='store/jewellery_images/', null=False)
+    jewel_image_url = models.URLField(max_length=200, null=True)
     jewel_category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='jewels', null=False)
 
 

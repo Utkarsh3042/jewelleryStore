@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-bz)%zs#n0r_45w1u)og$wo51#j!^1i)u(^^lo)rco_txu6k97n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','govindamgems.onrender.com']
+ALLOWED_HOSTS = ['0.0.0.0','govindamgems.onrender.com','*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://govindamgems.onrender.com',
@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'jewelleryStore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgredb',
+        'USER': 'postgredb_owner',
+        'PASSWORD': os.getenv("POSTGRE_PASSWORD"),
+        'HOST': 'ep-quiet-frog-a6yvty49.us-west-2.aws.neon.tech',
+        'PORT': '5432',
     }
 }
 
@@ -138,7 +142,6 @@ MEDIA_URL = '/media/'  # URL prefix for media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Absolute path to the media directory
 
 
-STATIC_URL = '/static/'
 
 
 load_dotenv()
@@ -151,4 +154,4 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 #True for admin page enabled, False for not
-ADMIN_ENABLED = False
+ADMIN_ENABLED = True

@@ -29,9 +29,9 @@
             <div>
                 <label for="image">Product Image:</label>
                 <input type="file" id="jewel_image" name="jewel_image">
-                {% if jewel.jewel_image %}
+                {% if jewel.jewel_image_url %}
                 <p>Current Image:</p>
-                <img src="{{ jewel.jewel_image.url }}" alt="Current Product Image" style="max-width: 200px;">
+                <img src="{{ jewel.jewel_image_url }}" alt="Current Product Image" style="max-width: 200px;">
                 {% endif %}
             </div>
         <button type="submit">Update Product</button>

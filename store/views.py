@@ -6,6 +6,12 @@ from .forms import CustomSignUp
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.exceptions import PermissionDenied
 from django.contrib import messages
+import requests
+from .utils import upload_image_to_imgbb
+
+
+
+
 
 
 def is_staff_user(user):
@@ -44,13 +50,18 @@ def add_jewellery(request):
         
         #note::condition to check if jewel already exists
 
+            if jewel_image:
+                image_url = upload_image_to_imgbb(jewel_image)
+            else:
+                image_url = ''
+
             Jewels.objects.create(
                 jewel_name=jewel_name,
                 jewel_price=jewel_price,
                 jewel_size=jewel_size,
                 jewel_weight = jewel_weight,
                 jewel_origin = jewel_origin,
-                jewel_image=jewel_image,
+                jewel_image_url=image_url,
                 jewel_category=category,
             )
             messages.success(request, 'Item added Successfully')
@@ -73,7 +84,9 @@ def edit_jewellery(request,pk):
 
         # Check if a new image is uploaded
         if 'jewel_image' in request.FILES:
-            jewel.jewel_image = request.FILES['jewel_image']
+            jewel_image = request.FILES['jewel_image']
+            jewel_image_url = upload_image_to_imgbb(jewel_image)  # Function that handles image upload
+            jewel.jewel_image_url = jewel_image_url
         
         jewel.save()
         messages.success(request, 'Item Details Updated Successfully')

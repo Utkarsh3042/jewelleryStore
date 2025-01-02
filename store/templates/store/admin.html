@@ -13,7 +13,7 @@
         {% for jewel in jewellery %}
         <div class="card">
             <a href="{% url 'details' jewel.id %}">
-                <img src="{{ jewel.jewel_image.url }}" alt="{{ jewel.jewel_name }}">
+                <img src="{{ jewel.jewel_image_url }}" alt="{{ jewel.jewel_name }}">
                 <div class="card-content">
                     <h3>{{ jewel.jewel_name }}</h3>
                     <p>
