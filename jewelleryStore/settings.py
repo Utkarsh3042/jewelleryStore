@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-bz)%zs#n0r_45w1u)og$wo51#j!^1i)u(^^lo)rco_txu6k97n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','govindamgems.onrender.com','*']
+ALLOWED_HOSTS = ['0.0.0.0','govindamgems.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://govindamgems.onrender.com',
@@ -154,4 +154,4 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 #True for admin page enabled, False for not
-ADMIN_ENABLED = True
+ADMIN_ENABLED = False
