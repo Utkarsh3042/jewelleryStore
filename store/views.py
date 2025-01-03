@@ -38,34 +38,28 @@ def add_jewellery(request):
         category_id = request.POST.get('category')
         new_category = request.POST.get('new_category')
 
-        if Jewels.objects.filter(jewel_name=jewel_name).exists():
-            messages.error(request, f'{jewel_name} already exists')
-            
-
-        else:
-            if new_category:
-                category, created = Category.objects.get_or_create(category_name=new_category)
-            else:
-                category = Category.objects.get(id=category_id)
         
-        #note::condition to check if jewel already exists
+        if new_category:
+            category, created = Category.objects.get_or_create(category_name=new_category)
+        else:
+            category = Category.objects.get(id=category_id)
+        
+        if jewel_image:
+            image_url = upload_image_to_imgbb(jewel_image)
+        else:
+            image_url = ''
 
-            if jewel_image:
-                image_url = upload_image_to_imgbb(jewel_image)
-            else:
-                image_url = ''
-
-            Jewels.objects.create(
-                jewel_name=jewel_name,
-                jewel_price=jewel_price,
-                jewel_size=jewel_size,
-                jewel_weight = jewel_weight,
-                jewel_origin = jewel_origin,
-                jewel_image_url=image_url,
-                jewel_category=category,
-            )
-            messages.success(request, 'Item added Successfully')
-            return redirect('adminpanel')
+        Jewels.objects.create(
+            jewel_name=jewel_name,
+            jewel_price=jewel_price,
+            jewel_size=jewel_size,
+            jewel_weight = jewel_weight,
+            jewel_origin = jewel_origin,
+            jewel_image_url=image_url,
+            jewel_category=category,
+        )
+        messages.success(request, 'Item added Successfully')
+        return redirect('adminpanel')
 
     categories = Category.objects.all()
     return render(request,'store/add_jewellery.html', {'categories': categories})
