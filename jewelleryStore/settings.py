@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'jewelleryStore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgredb',
-        'USER': 'postgredb_owner',
+        'NAME': os.getenv("POSTGRE_NAME"),
+        'USER': os.getenv("POSTGRE_USER"),
         'PASSWORD': os.getenv("POSTGRE_PASSWORD"),
-        'HOST': 'ep-quiet-frog-a6yvty49.us-west-2.aws.neon.tech',
-        'PORT': '5432',
+        'HOST': os.getenv("POSTGRE_HOST"),
+        'PORT': os.getenv("POSTGRE_PORT"),
     }
 }
 
